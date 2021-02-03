@@ -8,6 +8,11 @@
 
 - for node version, see [package.json](./package.json)
 
+## Why puppetbox?
+
+- Its [code base](https://raw.github.com/TimDaub/puppetbox/main/src) is tiny and maintainable.
+- It's framework-agnostic. All that is needed to get started is a HTML string.
+
 ## Installation
 
 ```bash
