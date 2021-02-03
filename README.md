@@ -10,6 +10,10 @@ $ npm i -D puppetbox
 
 ## Usage
 
+puppetbox allows you to capture screenshots using headless Chrome by entering a
+HTML string. For visual regression testing, a screenshot could later be
+compared using [`looks-same`](https://github.com/gemini-testing/looks-same).
+
 ```js
 import capture from "puppetbox";
 import { writeFileSync } from "fs";
@@ -23,6 +27,8 @@ import { writeFileSync } from "fs";
   writeFileSync(`example.png`, screenshot)
 })();
 ```
+
+screenshot of "example.png" below:
 
 ![example.png](https://raw.github.com/TimDaub/puppetbox/main/example.png)
 

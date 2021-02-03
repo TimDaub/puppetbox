@@ -4,7 +4,7 @@
   "description": "Capture screenshots of HTML using Chrome's headless mode.",
   "main": "src/index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "keywords": [
     "chrome",
@@ -18,5 +18,9 @@
   "dependencies": {
     "capture-chrome": "3.0.1",
     "expressively-mocked-fetch": "0.2.2"
+  },
+  "devDependencies": {
+    "ava": "3.15.0",
+    "looks-same": "7.3.0"
   }
 }
