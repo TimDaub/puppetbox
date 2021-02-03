@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Capture screenshots of HTML using Chrome's headless mode.",
   "main": "src/index.mjs",
+  "engines": {
+    "node": ">=14.15.4"
+  },
+  "engineStrict": true,
   "scripts": {
     "test": "ava"
   },

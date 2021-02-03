@@ -2,6 +2,10 @@
 
 > Capture screenshots of HTML using Chrome's headless mode.
 
+## Requirements
+
+- for node version, see [package.json](./package.json)
+
 ## Installation
 
 ```bash
