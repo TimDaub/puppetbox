@@ -1,5 +1,7 @@
 # puppetbox
 
+![Node.js CI](https://github.com/TimDaub/puppetbox/workflows/Node.js%20CI/badge.svg)
+
 > Capture screenshots of HTML using Chrome's headless mode.
 
 ## Requirements
