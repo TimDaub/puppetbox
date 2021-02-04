@@ -20,7 +20,7 @@
   "author": "Tim Daubenschütz <tim@daubenschuetz.de> (https://timdaub.github.io)",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "capture-chrome": "3.0.1",
+    "capture-chrome": "github:TimDaub/capture-chrome",
     "expressively-mocked-fetch": "0.2.2"
   },
   "devDependencies": {
