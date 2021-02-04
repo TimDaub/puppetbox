@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "ava": "3.15.0",
+    "imgur": "0.3.1",
     "looks-same": "7.3.0",
     "temp-dir": "2.0.0"
   }
