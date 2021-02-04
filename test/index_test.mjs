@@ -27,10 +27,15 @@ test("if capturing an image works", async t => {
   t.true(existsSync(ssPath));
   t.true(existsSync(expectedFilePath));
   return new Promise(res => {
-    looksSame(ssPath, expectedFilePath, (err, { equal }) => {
-      t.true(equal);
-      res();
-    });
+    looksSame(
+      ssPath,
+      expectedFilePath,
+      { antialiasingTolerance: 5 },
+      (err, { equal }) => {
+        t.true(equal);
+        res();
+      }
+    );
   });
 });
 
