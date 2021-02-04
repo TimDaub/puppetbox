@@ -42,7 +42,7 @@ test.skip("bla", async t => {
 });
 
 test("if capturing an image works", async t => {
-  const input = htmlEnvelope(`<p>hello world</p>`);
+  const input = htmlEnvelope(`<p style="font-family: Arial;">hello world</p>`);
 
   const screenshot = await capture(input, {
     width: 100,

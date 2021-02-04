@@ -30,7 +30,7 @@ import { capture, htmlEnvelope } from "puppetbox";
 import { writeFileSync } from "fs";
 
 (async () => {
-  const input = htmlEnvelope("<p>hello world</p>");
+  const input = htmlEnvelope("<p style="font-family: Arial;">hello world</p>");
 
   const screenshot = await capture(input, {
     height: 100,
