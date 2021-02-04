@@ -57,21 +57,26 @@ test("if capturing an image works", async t => {
   t.true(existsSync(ssPath));
   t.true(existsSync(expectedFilePath));
   return new Promise(res => {
-    looksSame(ssPath, expectedFilePath, async (err, { equal }) => {
-      if (!equal) {
-        // NOTE: This section is mainly to debug the tests on GitHub where
-        // apparently images are rendered differently than on e.g. my local
-        // computer.
-        const actualUL = await imgur.uploadFile(ssPath);
-        const expectedUL = await imgur.uploadFile(expectedFilePath);
-        console.info(`
+    looksSame(
+      ssPath,
+      expectedFilePath,
+      { ignoreAntialiasing: true },
+      async (err, { equal }) => {
+        if (!equal) {
+          // NOTE: This section is mainly to debug the tests on GitHub where
+          // apparently images are rendered differently than on e.g. my local
+          // computer.
+          const actualUL = await imgur.uploadFile(ssPath);
+          const expectedUL = await imgur.uploadFile(expectedFilePath);
+          console.info(`
             Actual: ${actualUL.data.link}
             Expected: ${expectedUL.data.link}
           `);
+        }
+        t.true(equal);
+        res();
       }
-      t.true(equal);
-      res();
-    });
+    );
   });
 });
 
