@@ -33,6 +33,11 @@ export function htmlEnvelope(body = "", head = "") {
   <head>
     <meta charset="utf-8"/>
     <title></title>
+    <style>
+      body {
+        text-rendering: geometricPrecision;
+      }
+    </style>
     ${head}
   </head>
   <body>

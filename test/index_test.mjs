@@ -68,10 +68,11 @@ test("if capturing an image works", async t => {
         // apparently images are rendered differently than on e.g. my local
         // computer.
         const actualUL = await imgur.uploadFile(ssPath);
-        console.info("Actual render", actualUL.data.link);
-
         const expectedUL = await imgur.uploadFile(expectedFilePath);
-        console.info("Expected render", expectedUL.data.link);
+        console.info(`
+            Actual: ${actualUL.data.link}
+            Expected: ${expectedUL.data.link}
+          `);
       }
       t.true(equal);
       res();
@@ -95,20 +96,27 @@ test("that matching two renders from two different OS is possible", async t => {
   t.true(existsSync(ssPath));
   t.true(existsSync(expectedFilePath));
   return new Promise(res => {
-    looksSame(ssPath, expectedFilePath, async (err, { equal }) => {
-      if (!equal) {
-        // NOTE: This section is mainly to debug the tests on GitHub where
-        // apparently images are rendered differently than on e.g. my local
-        // computer.
-        const actualUL = await imgur.uploadFile(ssPath);
-        console.info("Actual render", actualUL.data.link);
+    looksSame(
+      ssPath,
+      expectedFilePath,
+      { ignoreAntialiasing: true },
+      async (err, { equal }) => {
+        if (!equal) {
+          // NOTE: This section is mainly to debug the tests on GitHub where
+          // apparently images are rendered differently than on e.g. my local
+          // computer.
+          const actualUL = await imgur.uploadFile(ssPath);
+          const expectedUL = await imgur.uploadFile(expectedFilePath);
 
-        const expectedUL = await imgur.uploadFile(expectedFilePath);
-        console.info("Expected render", expectedUL.data.link);
+          console.info(`
+            Actual: ${actualUL.data.link}
+            Expected: ${expectedUL.data.link}
+          `);
+        }
+        t.true(equal);
+        res();
       }
-      t.true(equal);
-      res();
-    });
+    );
   });
 });
 
