@@ -1,6 +1,6 @@
 {
   "name": "puppetbox",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Capture screenshots of HTML using Chrome's headless mode.",
   "main": "src/index.mjs",
   "engines": {
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "ava": "3.15.0",
-    "looks-same": "7.3.0"
+    "looks-same": "7.3.0",
+    "temp-dir": "2.0.0"
   }
 }

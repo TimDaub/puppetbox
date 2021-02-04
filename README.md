@@ -26,11 +26,12 @@ HTML string. For visual regression testing, a screenshot could later be
 compared using [`looks-same`](https://github.com/gemini-testing/looks-same).
 
 ```js
-import capture from "puppetbox";
+import { capture, htmlEnvelope } from "puppetbox";
 import { writeFileSync } from "fs";
 
 (async () => {
-  const input= "<p>hello world</p>";
+  const input = htmlEnvelope("<p>hello world</p>");
+
   const screenshot = await capture(input, {
     height: 100,
     width: 100
@@ -41,9 +42,29 @@ import { writeFileSync } from "fs";
 
 screenshot of "example.png" below:
 
-![example.png](https://raw.github.com/TimDaub/puppetbox/main/example.png)
+![example.png](./example.png)
+
+### Notes
+
+- Headless Chrome renders an HTML string that is a valid and [minimal HTML
+  document](https://github.com/TimDaub/mynimal-html5-boilerplate#%CE%BCnimal-html5-boilerplate)
+  differently than passing in an HTML fragment. Compare ["hello world" as an
+  HTML fragment](./assets/without_html_env.png) and ["hello world" embedded
+  into a valid HTML document](./assets/with_html_env.png). We recommend consistant usage of
+  embedding or using fragments. A utility function for embedding a HTML fragment into
+  a minimal HTML boilerplate is provided with the `htmlEnvelope` function.
 
 ## Changelog
+
+### 0.1.0
+
+Stop embedding fragments in HTML doc. 
+
+- Stop exporting `capture` as default
+- Export `htmlEnvelope` function
+- Add tests for `capture` and `htmlEnvelope` functions
+- Add Note about how headless Chrome renders fragments differently from
+  documents
 
 ### 0.0.1
 
